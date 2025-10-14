@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SDAC — Community Feed</title>
+
+  <!-- Fonts + Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Firebase bootstrap -->
+  <script type="module" src="firebase-init.js"></script>
+  <!-- Feed logic (full CRUD) -->
+  <script type="module" src="feed.js"></script>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html"><span class="logo"></span><span>SDAC</span></a>
+    <button class="mobile-toggle">Menu</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="videos.html">Videos</a>
+      <a href="feed.html" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)">Feed</a>
+      <a href="contact.html">Contact</a>
+      <a href="appointment.html">Appointment</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="hero">
+    <div class="container">
+      <span class="kicker">Community</span>
+      <h1>Community Feed</h1>
+      <p class="lead">Post wins, ask questions, and share progress. Authors can edit their own posts. Admin can delete anything.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <!-- Auth bar -->
+      <div id="auth-bar" class="btn-row" style="margin-bottom:14px">
+        <button id="signin" class="btn primary">Sign in with Google</button>
+        <button id="signout" class="btn" style="display:none">Sign out</button>
+        <span id="who" style="margin-left:8px;color:#c8c8c8"></span>
+      </div>
+
+      <!-- Create post (visible only when signed in) -->
+      <form id="post-form" class="form-grid reveal" autocomplete="on" style="display:none">
+        <input class="input" name="author" placeholder="Your name" required/>
+        <input class="input" name="title" placeholder="Post title" required/>
+        <textarea class="full" name="content" rows="4" placeholder="Share an update..." required></textarea>
+        <div class="full"><button class="btn primary" type="submit">Post</button></div>
+      </form>
+
+      <!-- Feed list -->
+      <div id="feed-list" class="section">
+        <div class="container grid-3" id="posts"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="copy">All rights reserved SDAC | Designer Basit Azizi, 2025</p>
+  </div>
+</footer>
+
+<!-- Base interactions (mobile nav, reveal, ripple) -->
+<script src="app.js"></script>
+</body>
+</html>
