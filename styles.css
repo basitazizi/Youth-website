@@ -27,6 +27,12 @@ body{display:flex;min-height:100dvh;flex-direction:column}
 main{flex:1}
 body.board-open{overflow:hidden}
 
+.nav-board,
+.board-panel{
+  touch-action:pan-y;
+  overscroll-behavior:contain;
+}
+
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;display:block}
