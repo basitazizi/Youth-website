@@ -3,21 +3,16 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SDAC — Community Feed</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>SDAC — Donate</title>
   <link rel="stylesheet" href="styles.css"/>
-
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html"><span class="logo"></span><span>SDAC</span></a>
+      <a class="brand" href="index.html">
+        <span class="logo"></span><span>SDAC</span>
+      </a>
       <button class="board-toggle" type="button" aria-expanded="false" aria-controls="site-board">
         <span class="dot"></span>
         <span>Open Board</span>
@@ -49,7 +44,7 @@
           <span class="board-title">Videos</span>
           <p>Talks that power skills and inspiration.</p>
         </a>
-        <a class="board-card current" href="feed.html" aria-current="page">
+        <a class="board-card" href="feed.html">
           <span class="board-title">Feed</span>
           <p>Share wins and connect with mentors.</p>
         </a>
@@ -77,7 +72,7 @@
           <span class="board-title">Appointments</span>
           <p>Book a session with mentors.</p>
         </a>
-        <a class="board-card" href="donate.html">
+        <a class="board-card current" href="donate.html" aria-current="page">
           <span class="board-title">Donate</span>
           <p>Fuel scholarships and youth programs.</p>
         </a>
@@ -88,42 +83,59 @@
   <main>
     <header class="hero">
       <div class="container">
-        <span class="kicker">Community</span>
-        <h1>Community Feed</h1>
-        <p class="lead">Post wins, ask questions, and share progress. Authors can edit their own posts. Admin can delete anything.</p>
+        <span class="kicker">Give back</span>
+        <h1>Your support powers SDAC.</h1>
+        <p class="lead">Every dollar connects youth with mentors, creative labs, and life-changing opportunities.</p>
       </div>
     </header>
 
     <section class="section">
-      <div class="container">
-        <div id="auth-bar" class="btn-row" style="margin-bottom:14px">
-          <button id="signin" class="btn primary">Sign in with Google</button>
-          <button id="signout" class="btn" style="display:none">Sign out</button>
-          <span id="who" style="margin-left:8px;color:#c8c8c8"></span>
+      <div class="container donate-grid">
+        <div class="card reveal">
+          <span class="tag">Impact</span>
+          <h3>Where gifts go</h3>
+          <p>Scholarships, mentor stipends, field trips, and maker supplies. We share quarterly impact reports with donors.</p>
+          <ul class="check-list">
+            <li>$50 equips a student with books & resources.</li>
+            <li>$150 sponsors a month of mentorship sessions.</li>
+            <li>$500 launches a community workshop.</li>
+          </ul>
         </div>
-
-        <form id="post-form" class="form-grid reveal" autocomplete="on" style="display:none">
-          <input class="input" name="author" placeholder="Your name" required/>
-          <input class="input" name="title" placeholder="Post title" required/>
-          <textarea class="full" name="content" rows="4" placeholder="Share an update..." required></textarea>
-          <div class="full"><button class="btn primary" type="submit">Post</button></div>
-        </form>
-
-        <div id="feed-list" class="section">
-          <div class="container grid-3" id="posts"></div>
+        <div class="card reveal">
+          <span class="tag">Ways to give</span>
+          <h3>Contribute today</h3>
+          <form class="donate-form">
+            <label class="input-label" for="donate-amount">Choose an amount</label>
+            <div class="chip-row">
+              <button type="button" class="chip" data-amount="50">$50</button>
+              <button type="button" class="chip" data-amount="150">$150</button>
+              <button type="button" class="chip" data-amount="500">$500</button>
+              <button type="button" class="chip" data-amount="1000">$1k</button>
+            </div>
+            <input class="input" id="donate-amount" type="number" min="5" step="5" placeholder="Custom amount"/>
+            <button class="btn primary" type="submit">Donate now</button>
+            <p class="donate-note">We’ll follow up with instructions on how to complete your gift.</p>
+          </form>
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta">
+        <div>
+          <h2>Prefer offline giving?</h2>
+          <p class="lead">Email <a href="mailto:give@sdac.org">give@sdac.org</a> for ACH, check, or in-kind donations.</p>
+        </div>
+        <a class="btn" href="mailto:give@sdac.org">Contact our team</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p class="copy">All rights reserved SDAC | Designer Basit Azizi, 2025</p>
+      <p class="copy">All rights reserved SDAC &nbsp;|&nbsp; Designer Basit Azizi, 2025</p>
     </div>
   </footer>
-
   <script src="app.js"></script>
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
-</body>
-</html>
+
+</body></html>

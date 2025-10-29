@@ -3,21 +3,16 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SDAC — Community Feed</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>SDAC — Our Services</title>
   <link rel="stylesheet" href="styles.css"/>
-
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html"><span class="logo"></span><span>SDAC</span></a>
+      <a class="brand" href="index.html">
+        <span class="logo"></span><span>SDAC</span>
+      </a>
       <button class="board-toggle" type="button" aria-expanded="false" aria-controls="site-board">
         <span class="dot"></span>
         <span>Open Board</span>
@@ -49,7 +44,7 @@
           <span class="board-title">Videos</span>
           <p>Talks that power skills and inspiration.</p>
         </a>
-        <a class="board-card current" href="feed.html" aria-current="page">
+        <a class="board-card" href="feed.html">
           <span class="board-title">Feed</span>
           <p>Share wins and connect with mentors.</p>
         </a>
@@ -57,7 +52,7 @@
           <span class="board-title">Events</span>
           <p>Upcoming meetups, workshops, and pop-ups.</p>
         </a>
-        <a class="board-card" href="services.html">
+        <a class="board-card current" href="services.html" aria-current="page">
           <span class="board-title">Our Services</span>
           <p>Mentoring, coaching, and creative labs.</p>
         </a>
@@ -88,29 +83,69 @@
   <main>
     <header class="hero">
       <div class="container">
-        <span class="kicker">Community</span>
-        <h1>Community Feed</h1>
-        <p class="lead">Post wins, ask questions, and share progress. Authors can edit their own posts. Admin can delete anything.</p>
+        <span class="kicker">What we do</span>
+        <h1>Services that unlock youth potential.</h1>
+        <p class="lead">From personalized mentorship to creative production labs, SDAC designs experiences that move young people forward.</p>
       </div>
     </header>
 
     <section class="section">
       <div class="container">
-        <div id="auth-bar" class="btn-row" style="margin-bottom:14px">
-          <button id="signin" class="btn primary">Sign in with Google</button>
-          <button id="signout" class="btn" style="display:none">Sign out</button>
-          <span id="who" style="margin-left:8px;color:#c8c8c8"></span>
+        <h2>Core offerings</h2>
+        <p class="lead">Choose the mix that fits your campus or organization.</p>
+        <div class="grid-3">
+          <div class="card reveal">
+            <span class="tag">Mentorship</span>
+            <h3>1:1 Coaching Pods</h3>
+            <p>Weekly mentor sessions focused on goal setting, accountability, and mindset shifts.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">Programs</span>
+            <h3>Career Pathway Labs</h3>
+            <p>Project-based cohorts exploring tech, creative arts, and entrepreneurship.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">Support</span>
+            <h3>Family Navigation</h3>
+            <p>Workshops that equip caregivers to champion student success at home.</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <form id="post-form" class="form-grid reveal" autocomplete="on" style="display:none">
-          <input class="input" name="author" placeholder="Your name" required/>
-          <input class="input" name="title" placeholder="Post title" required/>
-          <textarea class="full" name="content" rows="4" placeholder="Share an update..." required></textarea>
-          <div class="full"><button class="btn primary" type="submit">Post</button></div>
-        </form>
+    <section class="section">
+      <div class="container service-panels">
+        <div class="card reveal">
+          <span class="tag">Custom</span>
+          <h3>On-site activations</h3>
+          <p>We travel with mobile makerspaces, storytellers, and coaches to light up your events.</p>
+          <ul class="check-list">
+            <li>Pop-up design studios</li>
+            <li>Leadership retreats</li>
+            <li>STEM challenge days</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <span class="tag">Virtual</span>
+          <h3>Digital mentoring</h3>
+          <p>Secure online circles with mentor moderators, curriculum, and trackable progress.</p>
+          <ul class="check-list">
+            <li>Weekly live coaching</li>
+            <li>Goal-tracking dashboards</li>
+            <li>Parent recap notes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <div id="feed-list" class="section">
-          <div class="container grid-3" id="posts"></div>
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Build a program with SDAC</h2>
+            <p class="lead">Tell us about your students and we’ll craft a custom mentorship track.</p>
+          </div>
+          <a class="btn primary" href="mailto:programs@sdac.org">Start a project</a>
         </div>
       </div>
     </section>
@@ -118,12 +153,9 @@
 
   <footer class="footer">
     <div class="container">
-      <p class="copy">All rights reserved SDAC | Designer Basit Azizi, 2025</p>
+      <p class="copy">All rights reserved SDAC &nbsp;|&nbsp; Designer Basit Azizi, 2025</p>
     </div>
   </footer>
-
   <script src="app.js"></script>
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
-</body>
-</html>
+
+</body></html>

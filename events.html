@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SDAC — Events</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="logo"></span><span>SDAC</span>
+      </a>
+      <button class="board-toggle" type="button" aria-expanded="false" aria-controls="site-board">
+        <span class="dot"></span>
+        <span>Open Board</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-board" id="site-board" aria-hidden="true">
+    <div class="board-backdrop" data-close-board></div>
+    <div class="board-panel" role="dialog" aria-modal="true" aria-labelledby="board-title">
+      <div class="board-header">
+        <div>
+          <p class="board-kicker">SDAC Navigator</p>
+          <h2 id="board-title">Where do you want to go?</h2>
+          <p class="board-sub">All of our spaces and tools gathered in one spot.</p>
+        </div>
+        <button class="board-close" type="button" aria-label="Close navigation board">Close</button>
+      </div>
+      <div class="board-grid">
+        <a class="board-card" href="index.html">
+          <span class="board-title">Home</span>
+          <p>Mentorship hub & highlights.</p>
+        </a>
+        <a class="board-card" href="books.html">
+          <span class="board-title">Books</span>
+          <p>Mindset, leadership, and creativity reads.</p>
+        </a>
+        <a class="board-card" href="videos.html">
+          <span class="board-title">Videos</span>
+          <p>Talks that power skills and inspiration.</p>
+        </a>
+        <a class="board-card" href="feed.html">
+          <span class="board-title">Feed</span>
+          <p>Share wins and connect with mentors.</p>
+        </a>
+        <a class="board-card current" href="events.html" aria-current="page">
+          <span class="board-title">Events</span>
+          <p>Upcoming meetups, workshops, and pop-ups.</p>
+        </a>
+        <a class="board-card" href="services.html">
+          <span class="board-title">Our Services</span>
+          <p>Mentoring, coaching, and creative labs.</p>
+        </a>
+        <a class="board-card" href="timeline.html">
+          <span class="board-title">Timeline</span>
+          <p>Milestones from launch to the future.</p>
+        </a>
+        <a class="board-card" href="vision-goals.html">
+          <span class="board-title">Vision &amp; Goals</span>
+          <p>How we empower youth long-term.</p>
+        </a>
+        <a class="board-card" href="contact.html">
+          <span class="board-title">Contact</span>
+          <p>Reach the SDAC team or request info.</p>
+        </a>
+        <a class="board-card" href="appointment.html">
+          <span class="board-title">Appointments</span>
+          <p>Book a session with mentors.</p>
+        </a>
+        <a class="board-card" href="donate.html">
+          <span class="board-title">Donate</span>
+          <p>Fuel scholarships and youth programs.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <header class="hero">
+      <div class="container">
+        <span class="kicker">Gatherings</span>
+        <h1>Events that bring SDAC to life.</h1>
+        <p class="lead">Workshops, community check-ins, and showcases designed to keep youth momentum high.</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <h2>Featured events</h2>
+        <p class="lead">Save your seat and invite a friend.</p>
+        <div class="grid-3">
+          <div class="card reveal">
+            <span class="tag">Workshop</span>
+            <h3>Design Sprint Lab</h3>
+            <p>Rapid prototyping sprint with mentors guiding each team.</p>
+            <p class="event-meta">Sat, Apr 12 • 10:00 AM</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">Meetup</span>
+            <h3>Community Stand-Up</h3>
+            <p>Monthly circle to celebrate wins, share asks, and set intentions.</p>
+            <p class="event-meta">Wed, Apr 23 • 6:00 PM</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">Showcase</span>
+            <h3>Youth Demo Day</h3>
+            <p>Pitch prototypes to partners and unlock scholarships.</p>
+            <p class="event-meta">Fri, May 9 • 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="timeline">
+          <h2>Season schedule</h2>
+          <p class="lead">Drop-in, virtual, and in-person experiences to stay engaged all year.</p>
+          <ol class="timeline-list">
+            <li class="timeline-item reveal">
+              <span class="timeline-date">March</span>
+              <div>
+                <h3>Mentor Match Week</h3>
+                <p>Speed mentoring to pair first-time members with coaches aligned to their goals.</p>
+              </div>
+            </li>
+            <li class="timeline-item reveal">
+              <span class="timeline-date">April</span>
+              <div>
+                <h3>Innovation Weekend</h3>
+                <p>48-hour build with maker kits, guest facilitators, and community judges.</p>
+              </div>
+            </li>
+            <li class="timeline-item reveal">
+              <span class="timeline-date">May</span>
+              <div>
+                <h3>Career Field Trips</h3>
+                <p>Visits to local companies to shadow creatives, engineers, and founders.</p>
+              </div>
+            </li>
+            <li class="timeline-item reveal">
+              <span class="timeline-date">June</span>
+              <div>
+                <h3>Summer Kickoff BBQ</h3>
+                <p>Family picnic with alumni panels, scholarship announcements, and games.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta">
+        <div>
+          <h2>Host an SDAC event</h2>
+          <p class="lead">Bring the energy to your school or community space. We’ll handle programming and mentors.</p>
+        </div>
+        <a class="btn primary" href="mailto:info@sdac.org">Partner with us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="copy">All rights reserved SDAC &nbsp;|&nbsp; Designer Basit Azizi, 2025</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+
+</body></html>
