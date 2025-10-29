@@ -3,21 +3,16 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SDAC — Community Feed</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>SDAC — Timeline</title>
   <link rel="stylesheet" href="styles.css"/>
-
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html"><span class="logo"></span><span>SDAC</span></a>
+      <a class="brand" href="index.html">
+        <span class="logo"></span><span>SDAC</span>
+      </a>
       <button class="board-toggle" type="button" aria-expanded="false" aria-controls="site-board">
         <span class="dot"></span>
         <span>Open Board</span>
@@ -49,7 +44,7 @@
           <span class="board-title">Videos</span>
           <p>Talks that power skills and inspiration.</p>
         </a>
-        <a class="board-card current" href="feed.html" aria-current="page">
+        <a class="board-card" href="feed.html">
           <span class="board-title">Feed</span>
           <p>Share wins and connect with mentors.</p>
         </a>
@@ -61,7 +56,7 @@
           <span class="board-title">Our Services</span>
           <p>Mentoring, coaching, and creative labs.</p>
         </a>
-        <a class="board-card" href="timeline.html">
+        <a class="board-card current" href="timeline.html" aria-current="page">
           <span class="board-title">Timeline</span>
           <p>Milestones from launch to the future.</p>
         </a>
@@ -88,29 +83,73 @@
   <main>
     <header class="hero">
       <div class="container">
-        <span class="kicker">Community</span>
-        <h1>Community Feed</h1>
-        <p class="lead">Post wins, ask questions, and share progress. Authors can edit their own posts. Admin can delete anything.</p>
+        <span class="kicker">Journey</span>
+        <h1>Timeline of SDAC milestones.</h1>
+        <p class="lead">The path from a small mentorship idea to a movement shaping futures.</p>
       </div>
     </header>
 
     <section class="section">
+      <div class="container timeline">
+        <ol class="timeline-list">
+          <li class="timeline-item reveal">
+            <span class="timeline-date">2018</span>
+            <div>
+              <h3>Concept sparks</h3>
+              <p>Founders begin meeting with youth leaders to design a mentorship model rooted in community voice.</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-date">2019</span>
+            <div>
+              <h3>Pilot cohort</h3>
+              <p>First 25 students complete the SDAC pilot, launching the community feed and book club.</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-date">2021</span>
+            <div>
+              <h3>Scaling citywide</h3>
+              <p>Partnerships with three schools bring mobile mentorship labs to hundreds of students.</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-date">2023</span>
+            <div>
+              <h3>Launch of SDAC Studios</h3>
+              <p>We open a dedicated space for content creation, prototyping, and youth-led showcases.</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-date">2024</span>
+            <div>
+              <h3>Scholarship fund</h3>
+              <p>Community donors and partners seed scholarships for alumni launching ventures and heading to college.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="container">
-        <div id="auth-bar" class="btn-row" style="margin-bottom:14px">
-          <button id="signin" class="btn primary">Sign in with Google</button>
-          <button id="signout" class="btn" style="display:none">Sign out</button>
-          <span id="who" style="margin-left:8px;color:#c8c8c8"></span>
-        </div>
-
-        <form id="post-form" class="form-grid reveal" autocomplete="on" style="display:none">
-          <input class="input" name="author" placeholder="Your name" required/>
-          <input class="input" name="title" placeholder="Post title" required/>
-          <textarea class="full" name="content" rows="4" placeholder="Share an update..." required></textarea>
-          <div class="full"><button class="btn primary" type="submit">Post</button></div>
-        </form>
-
-        <div id="feed-list" class="section">
-          <div class="container grid-3" id="posts"></div>
+        <h2>What’s next</h2>
+        <div class="grid-3">
+          <div class="card reveal">
+            <span class="tag">2025</span>
+            <h3>SDAC Fellows</h3>
+            <p>Paid leadership roles for alumni mentoring the next generation.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">2026</span>
+            <h3>Regional Hubs</h3>
+            <p>Satellite hubs in three new cities with local mentor coalitions.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">2027</span>
+            <h3>Innovation Fund</h3>
+            <p>Micro-grants for youth-led products and community solutions.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -118,12 +157,9 @@
 
   <footer class="footer">
     <div class="container">
-      <p class="copy">All rights reserved SDAC | Designer Basit Azizi, 2025</p>
+      <p class="copy">All rights reserved SDAC &nbsp;|&nbsp; Designer Basit Azizi, 2025</p>
     </div>
   </footer>
-
   <script src="app.js"></script>
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
-</body>
-</html>
+
+</body></html>
