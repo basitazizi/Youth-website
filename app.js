@@ -8,6 +8,21 @@ const boardClose = $('.board-close', board);
 const boardPanel = $('.board-panel', board);
 const boardLinks = $$('.board-card', board);
 const firstBoardLink = boardLinks[0];
+let boardScrollLockY = 0;
+
+const lockPageScroll = () => {
+  boardScrollLockY = window.scrollY || document.documentElement.scrollTop;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${boardScrollLockY}px`;
+  document.body.style.width = '100%';
+};
+
+const unlockPageScroll = () => {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, boardScrollLockY);
+};
 
 const setBoardState = (open) => {
   if (!board || !boardToggle) return;
@@ -16,13 +31,15 @@ const setBoardState = (open) => {
   boardToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   document.body.classList.toggle('board-open', open);
   if (open) {
+    lockPageScroll();
     board.scrollTop = 0;
     if (boardPanel) {
       boardPanel.scrollTop = 0;
     }
-    firstBoardLink?.focus();
+    requestAnimationFrame(() => firstBoardLink?.focus());
   } else {
-    boardToggle.focus({ preventScroll: true });
+    unlockPageScroll();
+    boardToggle?.focus({ preventScroll: true });
   }
 };
 
