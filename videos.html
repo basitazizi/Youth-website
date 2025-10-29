@@ -1,60 +1,109 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SDAC — Videos</title><link rel="stylesheet" href="styles.css"/></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SDAC — Videos</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
 <body>
-  
+
   <nav class="nav">
     <div class="container nav-wrap">
       <a class="brand" href="index.html">
         <span class="logo"></span><span>SDAC</span>
       </a>
-      <button class="mobile-toggle">Menu</button>
-      <div class="nav-links">
-        <a href="index.html" >Home</a>
-        <a href="books.html" >Books</a>
-        <a href="videos.html" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)">Videos</a>
-        <a href="feed.html" >Feed</a>
-        <a href="contact.html" >Contact</a>
-        <a href="appointment.html" >Appointment</a>
-      </div>
+      <button class="board-toggle" type="button" aria-expanded="false" aria-controls="site-board">
+        <span class="dot"></span>
+        <span>Open Board</span>
+      </button>
     </div>
   </nav>
 
+  <div class="nav-board" id="site-board" aria-hidden="true">
+    <div class="board-backdrop" data-close-board></div>
+    <div class="board-panel" role="dialog" aria-modal="true" aria-labelledby="board-title">
+      <div class="board-header">
+        <div>
+          <p class="board-kicker">SDAC Navigator</p>
+          <h2 id="board-title">Where do you want to go?</h2>
+          <p class="board-sub">All of our spaces and tools gathered in one spot.</p>
+        </div>
+        <button class="board-close" type="button" aria-label="Close navigation board">Close</button>
+      </div>
+      <div class="board-grid">
+        <a class="board-card" href="index.html">
+          <span class="board-title">Home</span>
+          <p>Mentorship hub & highlights.</p>
+        </a>
+        <a class="board-card" href="books.html">
+          <span class="board-title">Books</span>
+          <p>Mindset, leadership, and creativity reads.</p>
+        </a>
+        <a class="board-card current" href="videos.html" aria-current="page">
+          <span class="board-title">Videos</span>
+          <p>Talks that power skills and inspiration.</p>
+        </a>
+        <a class="board-card" href="feed.html">
+          <span class="board-title">Feed</span>
+          <p>Share wins and connect with mentors.</p>
+        </a>
+        <a class="board-card" href="events.html">
+          <span class="board-title">Events</span>
+          <p>Upcoming meetups, workshops, and pop-ups.</p>
+        </a>
+        <a class="board-card" href="services.html">
+          <span class="board-title">Our Services</span>
+          <p>Mentoring, coaching, and creative labs.</p>
+        </a>
+        <a class="board-card" href="timeline.html">
+          <span class="board-title">Timeline</span>
+          <p>Milestones from launch to the future.</p>
+        </a>
+        <a class="board-card" href="vision-goals.html">
+          <span class="board-title">Vision &amp; Goals</span>
+          <p>How we empower youth long-term.</p>
+        </a>
+        <a class="board-card" href="contact.html">
+          <span class="board-title">Contact</span>
+          <p>Reach the SDAC team or request info.</p>
+        </a>
+        <a class="board-card" href="appointment.html">
+          <span class="board-title">Appointments</span>
+          <p>Book a session with mentors.</p>
+        </a>
+        <a class="board-card" href="donate.html">
+          <span class="board-title">Donate</span>
+          <p>Fuel scholarships and youth programs.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <main>
     <header class="hero"><div class="container">
-      <span class="kicker">Media</span><h1>Talks and tutorials to spark action.</h1>
-      <p class="lead">Learn from mentors and creators across fields.</p></div></header>
-    <section class="section">
-      <div class="container grid-3">
-        <div class="card reveal">
-          <span class="tag">Leadership</span>
-          <h3>How great leaders inspire action</h3>
-          <p>Simon Sinek’s classic talk on the Golden Circle.</p>
-          <div class="thumb" style="margin-bottom:12px">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/H14bBuluwB8" title="How great leaders inspire action" allowfullscreen></iframe>
-          </div>
-          <div class="btn-row">
-            <a class="btn primary" href="https://youtu.be/H14bBuluwB8?si=jrSbsS86FHpjzyi7" target="_blank" rel="noopener">Watch on YouTube</a>
-          </div>
+      <span class="kicker">Learning Stream</span><h1>Videos to spark action.</h1>
+      <p class="lead">Playlist picks for motivation, leadership, and creativity.</p></div></header>
+    <section class="section"><div class="container grid-3">
+      <div class="card reveal">
+        <span class="tag">Leadership</span>
+        <h3>How great leaders inspire action</h3>
+        <p>Simon Sinek’s classic talk on purpose-driven leadership.</p>
+        <div class="thumb" style="margin-top:14px">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/H14bBuluwB8" title="How great leaders inspire action" allowfullscreen></iframe>
         </div>
-        <div class="card reveal">
-          <h3>Goal Setting</h3>
-          <p>Practical steps to set and hit goals.</p>
-          <div class="thumb"></div>
-        </div>
-        <div class="card reveal">
-          <h3>Study Skills</h3>
-          <p>Techniques to learn faster with better systems.</p>
-          <div class="thumb"></div>
+        <div class="btn-row" style="margin-top:18px">
+          <a class="btn primary" href="https://youtu.be/H14bBuluwB8?si=jrSbsS86FHpjzyi7" target="_blank" rel="noopener">Watch on YouTube</a>
         </div>
       </div>
-    </section>
+      <div class="card reveal"><span class="tag">Mindset</span><h3>Unlocking Resilience</h3><p>Mini talk on growth mindset.</p><div class="thumb"></div></div>
+      <div class="card reveal"><span class="tag">Creativity</span><h3>Design Your Future</h3><p>Workshop on creative problem-solving.</p><div class="thumb"></div></div>
+    </div></section>
   </main>
-  
+
   <footer class="footer">
     <div class="container">
-      <p class="copy">© All rights reserved SDAC | Designer: Basit Azizi, 2025</p>
+      <p class="copy">All rights reserved SDAC &nbsp;|&nbsp; Designer Basit Azizi, 2025</p>
     </div>
   </footer>
   <script src="app.js"></script>

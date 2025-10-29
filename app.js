@@ -1,7 +1,150 @@
+const $ = (selector, scope = document) => (scope ? scope.querySelector(selector) : null);
+const $$ = (selector, scope = document) => (scope ? Array.from(scope.querySelectorAll(selector)) : []);
 
-const $=(s,c=document)=>c.querySelector(s);
-const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
-const toggleBtn=$('.mobile-toggle');const navLinks=$('.nav-links');
-if(toggleBtn){toggleBtn.addEventListener('click',()=>{if(navLinks.style.display==='flex'){navLinks.style.display='none'}else{navLinks.style.display='flex';navLinks.style.flexDirection='column';navLinks.style.gap='8px'}});}
-const revealEls=$$('.reveal');const onScroll=()=>{const t=window.innerHeight*.9;revealEls.forEach(el=>{if(el.getBoundingClientRect().top<t)el.classList.add('visible');});};document.addEventListener('scroll',onScroll);window.addEventListener('load',onScroll);
-$$('.btn').forEach(btn=>{btn.addEventListener('click',e=>{const r=document.createElement('span');r.style.position='absolute';r.style.inset='0';r.style.borderRadius='inherit';r.style.background=`radial-gradient(220px 220px at ${e.offsetX}px ${e.offsetY}px, rgba(255,255,255,.25), transparent 40%)`;r.style.pointerEvents='none';btn.appendChild(r);setTimeout(()=>r.remove(),350);});});
+const board = $('.nav-board');
+const boardToggle = $('.board-toggle');
+const boardBackdrop = board ? board.querySelector('[data-close-board]') : null;
+const boardClose = $('.board-close', board);
+const boardPanel = $('.board-panel', board);
+const boardLinks = $$('.board-card', board);
+const firstBoardLink = boardLinks.length > 0 ? boardLinks[0] : null;
+let boardScrollLockY = 0;
+
+const lockPageScroll = () => {
+  boardScrollLockY = window.scrollY || document.documentElement.scrollTop;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${boardScrollLockY}px`;
+  document.body.style.width = '100%';
+};
+
+const unlockPageScroll = () => {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, boardScrollLockY);
+};
+
+const setBoardState = (open) => {
+  if (!board || !boardToggle) return;
+  board.classList.toggle('open', open);
+  board.setAttribute('aria-hidden', open ? 'false' : 'true');
+  if (boardToggle) {
+    boardToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  document.body.classList.toggle('board-open', open);
+  if (open) {
+    lockPageScroll();
+    board.scrollTop = 0;
+    if (boardPanel) {
+      boardPanel.scrollTop = 0;
+    }
+    if (firstBoardLink) {
+      requestAnimationFrame(() => {
+        firstBoardLink.focus();
+      });
+    }
+  } else {
+    unlockPageScroll();
+    if (boardToggle && boardToggle.focus) {
+      try {
+        boardToggle.focus({ preventScroll: true });
+      } catch (error) {
+        boardToggle.focus();
+      }
+    }
+  }
+};
+
+if (board && boardToggle) {
+  boardToggle.addEventListener('click', () => {
+    const isOpen = board.classList.contains('open');
+    setBoardState(!isOpen);
+  });
+
+  if (boardBackdrop) {
+    boardBackdrop.addEventListener('click', () => setBoardState(false));
+  }
+  if (boardClose) {
+    boardClose.addEventListener('click', () => setBoardState(false));
+  }
+  boardLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      setTimeout(() => setBoardState(false), 120);
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && board.classList.contains('open')) {
+      setBoardState(false);
+    }
+  });
+}
+
+const revealEls = $$('.reveal');
+const onScroll = () => {
+  const threshold = window.innerHeight * 0.9;
+  revealEls.forEach((el) => {
+    if (el.getBoundingClientRect().top < threshold) {
+      el.classList.add('visible');
+    }
+  });
+};
+
+document.addEventListener('scroll', onScroll);
+window.addEventListener('load', onScroll);
+
+$$('.btn').forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    const ripple = document.createElement('span');
+    ripple.style.position = 'absolute';
+    ripple.style.inset = '0';
+    ripple.style.borderRadius = 'inherit';
+    ripple.style.background = `radial-gradient(220px 220px at ${event.offsetX}px ${event.offsetY}px, rgba(255,255,255,.25), transparent 40%)`;
+    ripple.style.pointerEvents = 'none';
+    btn.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 350);
+  });
+});
+
+const donateForm = $('.donate-form');
+if (donateForm) {
+  const amountInput = $('#donate-amount', donateForm);
+  const chips = $$('.chip', donateForm);
+  const note = $('.donate-note', donateForm);
+
+  const activateChip = (chip) => {
+    chips.forEach((c) => c.classList.toggle('active', c === chip));
+    const value = chip.dataset.amount;
+    if (amountInput) {
+      amountInput.value = value || '';
+    }
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => activateChip(chip));
+  });
+
+  if (amountInput) {
+    amountInput.addEventListener('input', () => {
+      if (amountInput.value) {
+        chips.forEach((chip) => chip.classList.remove('active'));
+      }
+    });
+  }
+
+  donateForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const activeChip = chips.find((chip) => chip.classList.contains('active'));
+    const amountValue = amountInput ? amountInput.value : '';
+    const amount = amountValue || (activeChip ? activeChip.dataset.amount : '');
+    if (!amount) {
+      if (note) {
+        note.textContent = 'Select or enter an amount to continue.';
+      }
+      return;
+    }
+    if (note) {
+      note.textContent = `Thanks! We will reach out with next steps to complete your $${amount} gift.`;
+    }
+  });
+}

@@ -1,46 +1,283 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SDAC — Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"/></head>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
 <body>
-  
+
   <nav class="nav">
     <div class="container nav-wrap">
       <a class="brand" href="index.html">
         <span class="logo"></span><span>SDAC</span>
       </a>
-      <button class="mobile-toggle">Menu</button>
-      <div class="nav-links">
-        <a href="index.html" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)">Home</a>
-        <a href="books.html" >Books</a>
-        <a href="videos.html" >Videos</a>
-        <a href="feed.html" >Feed</a>
-        <a href="contact.html" >Contact</a>
-        <a href="appointment.html" >Appointment</a>
-      </div>
+      <button class="board-toggle" type="button" aria-expanded="false" aria-controls="site-board">
+        <span class="dot"></span>
+        <span>Open Board</span>
+      </button>
     </div>
   </nav>
+
+  <div class="nav-board" id="site-board" aria-hidden="true">
+    <div class="board-backdrop" data-close-board></div>
+    <div class="board-panel" role="dialog" aria-modal="true" aria-labelledby="board-title">
+      <div class="board-header">
+        <div>
+          <p class="board-kicker">SDAC Navigator</p>
+          <h2 id="board-title">Where do you want to go?</h2>
+          <p class="board-sub">All of our spaces and tools gathered in one spot.</p>
+        </div>
+        <button class="board-close" type="button" aria-label="Close navigation board">Close</button>
+      </div>
+      <div class="board-grid">
+        <a class="board-card current" href="index.html" aria-current="page">
+          <span class="board-title">Home</span>
+          <p>Mentorship hub & highlights.</p>
+        </a>
+        <a class="board-card" href="books.html">
+          <span class="board-title">Books</span>
+          <p>Mindset, leadership, and creativity reads.</p>
+        </a>
+        <a class="board-card" href="videos.html">
+          <span class="board-title">Videos</span>
+          <p>Talks that power skills and inspiration.</p>
+        </a>
+        <a class="board-card" href="feed.html">
+          <span class="board-title">Feed</span>
+          <p>Share wins and connect with mentors.</p>
+        </a>
+        <a class="board-card" href="events.html">
+          <span class="board-title">Events</span>
+          <p>Upcoming meetups, workshops, and pop-ups.</p>
+        </a>
+        <a class="board-card" href="services.html">
+          <span class="board-title">Our Services</span>
+          <p>Mentoring, coaching, and creative labs.</p>
+        </a>
+        <a class="board-card" href="timeline.html">
+          <span class="board-title">Timeline</span>
+          <p>Milestones from launch to the future.</p>
+        </a>
+        <a class="board-card" href="vision-goals.html">
+          <span class="board-title">Vision &amp; Goals</span>
+          <p>How we empower youth long-term.</p>
+        </a>
+        <a class="board-card" href="contact.html">
+          <span class="board-title">Contact</span>
+          <p>Reach the SDAC team or request info.</p>
+        </a>
+        <a class="board-card" href="appointment.html">
+          <span class="board-title">Appointments</span>
+          <p>Book a session with mentors.</p>
+        </a>
+        <a class="board-card" href="donate.html">
+          <span class="board-title">Donate</span>
+          <p>Fuel scholarships and youth programs.</p>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <main>
     <header class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="home-hero-intro">
           <span class="kicker">SDAC • Youth Mentorship</span>
           <h1>Bold futures, built together.</h1>
-          <p>SDAC connects youth with mentors, books, videos, and hands-on experiences. Join and grow with us.</p>
+          <p>Guided mentorship, creative labs, and opportunities that turn curiosity into confidence. SDAC surrounds youth with the community and tools they need to launch what’s next.</p>
+          <div class="insight-strip">
+            <span class="insight-pill">Leadership Labs</span>
+            <span class="insight-pill">Career Pathways</span>
+            <span class="insight-pill">Creative Challenges</span>
+          </div>
           <div class="btn-row">
-            <a class="btn primary" href="feed.html">Community Feed</a>
-            <a class="btn link" href="appointment.html">Book Appointment</a>
+            <a class="btn primary" href="feed.html">Join the SDAC Community</a>
           </div>
         </div>
-        <div class="reveal"><img class="floaty" src="assets/sdac-logo.svg" alt="SDAC Logo" style="width:160px;margin:auto"/></div>
+        <div class="reveal"><img class="floaty" src="assets/sdac-logo.svg" alt="SDAC Logo" style="width:200px;margin:auto"/></div>
       </div>
     </header>
+
+    <section class="section reveal">
+      <div class="container">
+        <h2>Programs that spark action</h2>
+        <p class="lead">Every SDAC gathering blends mentorship with making. Youth leave each session with a next step and a partner cheering them on.</p>
+        <div class="grid-3">
+          <article class="card">
+            <span class="tag">Launch Circles</span>
+            <h3>1:1 mentoring with momentum</h3>
+            <p>Personalized guidance matched to each member’s goals, from writing a college essay to pitching a business idea.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Studio Fridays</span>
+            <h3>Create, build, and prototype</h3>
+            <p>Hands-on workshops led by industry creatives where youth experiment with media, design, and technology.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Community Stages</span>
+            <h3>Real-world leadership reps</h3>
+            <p>Pop-up events that give members the mic to host panels, teach peers, and showcase their progress.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+        <h2>Impact in numbers</h2>
+        <p class="lead">SDAC is powered by mentors, alumni, and partners who believe youth deserve the best resources today—not someday.</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value">320+</span>
+            <p class="stat-caption">Students and young creatives connected to mentors across the SDAC network.</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">72%</span>
+            <p class="stat-caption">Of members launched a project, internship, or scholarship within three months.</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">1,450</span>
+            <p class="stat-caption">Hours of coaching, classes, and community-led events facilitated last year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container story-grid">
+        <div>
+          <h2>Pathway from interest to leadership</h2>
+          <p class="lead">We meet youth where they are, then layer in mindset coaching, skill labs, and public showcases to grow confidence step by step.</p>
+          <ul class="check-list">
+            <li>Onboarding huddles identify each member’s goals and strengths.</li>
+            <li>Mentors co-design learning playlists with resources from our library.</li>
+            <li>Monthly showcases celebrate progress and connect families and partners.</li>
+          </ul>
+        </div>
+        <div class="story-panel">
+          <span class="tag">Inside SDAC</span>
+          <h3>What a 90-day journey looks like</h3>
+          <p>Each cohort cycles through focus weeks so members can explore, build, and lead:</p>
+          <ul>
+            <li>Weeks 1-4 — Foundations & vision setting with mentor check-ins.</li>
+            <li>Weeks 5-8 — Skill labs and field trips with partner organizations.</li>
+            <li>Weeks 9-12 — Demo day, reflection, and planning the next milestone.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container mentor-spotlight">
+        <div>
+          <h2>Mentor spotlight</h2>
+          <p class="lead">“SDAC is a launchpad. We’re not just inspiring—we’re co-creating experiences where youth can lead and shine.”</p>
+          <p class="mentor-quote">— Amara Lewis, SDAC Creative Director & Lead Mentor</p>
+          <div class="btn-row">
+            <a class="btn primary" href="services.html">See how we mentor</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Mentor leading a creative workshop">
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+        <h2>Why families choose SDAC</h2>
+        <p class="lead">Our approach blends accountability, creativity, and wellness supports so every young person feels ready to take the next step.</p>
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <span class="benefit-icon">01</span>
+            <h3>Coaching that fits each learner</h3>
+            <ul>
+              <li>Goal maps built with mentors and families together.</li>
+              <li>Weekly touchpoints that track progress and celebrate wins.</li>
+            </ul>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">02</span>
+            <h3>Opportunities beyond the classroom</h3>
+            <ul>
+              <li>Creative briefs from community partners and local brands.</li>
+              <li>Scholarships, internships, and micro-grants for standout projects.</li>
+            </ul>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">03</span>
+            <h3>Whole-family support network</h3>
+            <ul>
+              <li>Parent circles that share resources and encouragement.</li>
+              <li>Wellness check-ins that keep balance at the center.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+        <h2>Community pulse</h2>
+        <p class="lead">Snapshots from the SDAC feed and program board—proof that momentum is building every week.</p>
+        <div class="community-grid">
+          <article class="community-card">
+            <span class="tag">Mentor moment</span>
+            <time datetime="2025-03-14">Mar 14</time>
+            <h3>Design Lab teamed up with Skyline Creative</h3>
+            <p>Students prototyped brand campaigns alongside agency designers and pitched concepts live at the end of the day.</p>
+          </article>
+          <article class="community-card">
+            <span class="tag">Member win</span>
+            <time datetime="2025-02-28">Feb 28</time>
+            <h3>Kayla landed a robotics internship</h3>
+            <p>After 8 weeks in Launch Circles, Kayla earned a spring placement with our partners at TechForge Labs.</p>
+          </article>
+          <article class="community-card">
+            <span class="tag">Parent voice</span>
+            <time datetime="2025-02-10">Feb 10</time>
+            <h3>“SDAC keeps my son dreaming”</h3>
+            <p>Families shared testimonials during our winter showcase, spotlighting the confidence their students have gained.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+        <h2>Partners &amp; supporters</h2>
+        <p class="lead">We collaborate with schools, organizations, and local businesses to open doors and sustain every program.</p>
+        <div class="partner-row">
+          <span class="partner-chip">City Schools Collaborative</span>
+          <span class="partner-chip">Riverfront Tech Hub</span>
+          <span class="partner-chip">Skyline Creative Studio</span>
+          <span class="partner-chip">Community Health Alliance</span>
+          <span class="partner-chip">Bridge Builders Foundation</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h3>Ready to plug in?</h3>
+            <p class="mentor-quote">Join the SDAC community feed, RSVP for an event, or sponsor a new program. Every action fuels a young leader’s journey.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn primary" href="feed.html">Share a Win</a>
+            <a class="btn" href="events.html">RSVP Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  
+
   <footer class="footer">
     <div class="container">
       <p class="copy">© All rights reserved SDAC &nbsp;|&nbsp; Designer Basit Azizi, 2025</p>

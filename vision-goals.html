@@ -3,21 +3,16 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SDAC — Community Feed</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>SDAC — Vision & Goals</title>
   <link rel="stylesheet" href="styles.css"/>
-
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html"><span class="logo"></span><span>SDAC</span></a>
+      <a class="brand" href="index.html">
+        <span class="logo"></span><span>SDAC</span>
+      </a>
       <button class="board-toggle" type="button" aria-expanded="false" aria-controls="site-board">
         <span class="dot"></span>
         <span>Open Board</span>
@@ -49,7 +44,7 @@
           <span class="board-title">Videos</span>
           <p>Talks that power skills and inspiration.</p>
         </a>
-        <a class="board-card current" href="feed.html" aria-current="page">
+        <a class="board-card" href="feed.html">
           <span class="board-title">Feed</span>
           <p>Share wins and connect with mentors.</p>
         </a>
@@ -65,7 +60,7 @@
           <span class="board-title">Timeline</span>
           <p>Milestones from launch to the future.</p>
         </a>
-        <a class="board-card" href="vision-goals.html">
+        <a class="board-card current" href="vision-goals.html" aria-current="page">
           <span class="board-title">Vision &amp; Goals</span>
           <p>How we empower youth long-term.</p>
         </a>
@@ -88,42 +83,80 @@
   <main>
     <header class="hero">
       <div class="container">
-        <span class="kicker">Community</span>
-        <h1>Community Feed</h1>
-        <p class="lead">Post wins, ask questions, and share progress. Authors can edit their own posts. Admin can delete anything.</p>
+        <span class="kicker">North star</span>
+        <h1>Vision & goals for the next decade.</h1>
+        <p class="lead">SDAC imagines a world where every young person has a mentor, a pathway, and a community cheering them on.</p>
       </div>
     </header>
 
     <section class="section">
-      <div class="container">
-        <div id="auth-bar" class="btn-row" style="margin-bottom:14px">
-          <button id="signin" class="btn primary">Sign in with Google</button>
-          <button id="signout" class="btn" style="display:none">Sign out</button>
-          <span id="who" style="margin-left:8px;color:#c8c8c8"></span>
+      <div class="container vision-grid">
+        <div class="card reveal">
+          <span class="tag">Vision</span>
+          <h3>Mentorship as a right</h3>
+          <p>Every student deserves consistent coaching, meaningful projects, and access to networks that open doors.</p>
         </div>
-
-        <form id="post-form" class="form-grid reveal" autocomplete="on" style="display:none">
-          <input class="input" name="author" placeholder="Your name" required/>
-          <input class="input" name="title" placeholder="Post title" required/>
-          <textarea class="full" name="content" rows="4" placeholder="Share an update..." required></textarea>
-          <div class="full"><button class="btn primary" type="submit">Post</button></div>
-        </form>
-
-        <div id="feed-list" class="section">
-          <div class="container grid-3" id="posts"></div>
+        <div class="card reveal">
+          <span class="tag">Mission</span>
+          <h3>Equip & amplify youth voice</h3>
+          <p>We provide tools, storytelling platforms, and funding that allow young people to lead solutions.</p>
         </div>
+        <div class="card reveal">
+          <span class="tag">Promise</span>
+          <h3>Community first</h3>
+          <p>SDAC programs are co-created with families, educators, and alumni, ensuring cultural relevance and sustainability.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container goals-grid">
+        <h2>Goals we are tracking</h2>
+        <div class="goal-columns">
+          <div>
+            <h3>Access</h3>
+            <ul class="check-list">
+              <li>Mentor 1,000 youth annually across all hubs.</li>
+              <li>Provide every participant with a technology stipend.</li>
+              <li>Launch bilingual programs in three languages.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Impact</h3>
+            <ul class="check-list">
+              <li>90% of fellows enroll in higher education or careers they choose.</li>
+              <li>Scholarship fund supporting 200 alumni per year.</li>
+              <li>Publish annual impact reports led by youth researchers.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Sustainability</h3>
+            <ul class="check-list">
+              <li>Train 150 community mentors through SDAC Academy.</li>
+              <li>Build a coalition of 50 employer partners.</li>
+              <li>Establish an endowment to secure core programs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta">
+        <div>
+          <h2>Join the vision</h2>
+          <p class="lead">Volunteer, donate, or bring SDAC to your school to help us hit these milestones.</p>
+        </div>
+        <a class="btn primary" href="donate.html">Support SDAC</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p class="copy">All rights reserved SDAC | Designer Basit Azizi, 2025</p>
+      <p class="copy">All rights reserved SDAC &nbsp;|&nbsp; Designer Basit Azizi, 2025</p>
     </div>
   </footer>
-
   <script src="app.js"></script>
-  <script type="module" src="firebase-init.js"></script>
-  <script type="module" src="feed.js"></script>
-</body>
-</html>
+
+</body></html>
