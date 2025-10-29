@@ -1,13 +1,13 @@
-const $ = (selector, scope = document) => (scope ? scope.querySelector(selector) : null);
-const $$ = (selector, scope = document) => (scope ? Array.from(scope.querySelectorAll(selector)) : []);
+const $ = (selector, scope = document) => scope.querySelector(selector);
+const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
 const board = $('.nav-board');
 const boardToggle = $('.board-toggle');
-const boardBackdrop = board ? board.querySelector('[data-close-board]') : null;
+const boardBackdrop = board?.querySelector('[data-close-board]');
 const boardClose = $('.board-close', board);
 const boardPanel = $('.board-panel', board);
 const boardLinks = $$('.board-card', board);
-const firstBoardLink = boardLinks.length > 0 ? boardLinks[0] : null;
+const firstBoardLink = boardLinks[0];
 let boardScrollLockY = 0;
 
 const lockPageScroll = () => {
@@ -23,14 +23,14 @@ const unlockPageScroll = () => {
   document.body.style.width = '';
   window.scrollTo(0, boardScrollLockY);
 };
+const boardLinks = $$('.board-card', board);
+const firstBoardLink = boardLinks[0];
 
 const setBoardState = (open) => {
   if (!board || !boardToggle) return;
   board.classList.toggle('open', open);
   board.setAttribute('aria-hidden', open ? 'false' : 'true');
-  if (boardToggle) {
-    boardToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
+  boardToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   document.body.classList.toggle('board-open', open);
   if (open) {
     lockPageScroll();
@@ -38,20 +38,13 @@ const setBoardState = (open) => {
     if (boardPanel) {
       boardPanel.scrollTop = 0;
     }
-    if (firstBoardLink) {
-      requestAnimationFrame(() => {
-        firstBoardLink.focus();
-      });
-    }
+    requestAnimationFrame(() => firstBoardLink?.focus());
   } else {
     unlockPageScroll();
-    if (boardToggle && boardToggle.focus) {
-      try {
-        boardToggle.focus({ preventScroll: true });
-      } catch (error) {
-        boardToggle.focus();
-      }
-    }
+    boardToggle?.focus({ preventScroll: true });
+    firstBoardLink?.focus();
+  } else {
+    boardToggle.focus({ preventScroll: true });
   }
 };
 
@@ -61,17 +54,9 @@ if (board && boardToggle) {
     setBoardState(!isOpen);
   });
 
-  if (boardBackdrop) {
-    boardBackdrop.addEventListener('click', () => setBoardState(false));
-  }
-  if (boardClose) {
-    boardClose.addEventListener('click', () => setBoardState(false));
-  }
-  boardLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      setTimeout(() => setBoardState(false), 120);
-    });
-  });
+  boardBackdrop?.addEventListener('click', () => setBoardState(false));
+  boardClose?.addEventListener('click', () => setBoardState(false));
+  boardLinks.forEach((link) => link.addEventListener('click', () => setTimeout(() => setBoardState(false), 120)));
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && board.classList.contains('open')) {
@@ -124,19 +109,16 @@ if (donateForm) {
     chip.addEventListener('click', () => activateChip(chip));
   });
 
-  if (amountInput) {
-    amountInput.addEventListener('input', () => {
-      if (amountInput.value) {
-        chips.forEach((chip) => chip.classList.remove('active'));
-      }
-    });
-  }
+  amountInput?.addEventListener('input', () => {
+    if (amountInput.value) {
+      chips.forEach((chip) => chip.classList.remove('active'));
+    }
+  });
 
   donateForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const activeChip = chips.find((chip) => chip.classList.contains('active'));
-    const amountValue = amountInput ? amountInput.value : '';
-    const amount = amountValue || (activeChip ? activeChip.dataset.amount : '');
+    const amount = amountInput?.value || activeChip?.dataset.amount;
     if (!amount) {
       if (note) {
         note.textContent = 'Select or enter an amount to continue.';
