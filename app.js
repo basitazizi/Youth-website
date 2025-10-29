@@ -23,6 +23,8 @@ const unlockPageScroll = () => {
   document.body.style.width = '';
   window.scrollTo(0, boardScrollLockY);
 };
+const boardLinks = $$('.board-card', board);
+const firstBoardLink = boardLinks[0];
 
 const setBoardState = (open) => {
   if (!board || !boardToggle) return;
@@ -40,6 +42,9 @@ const setBoardState = (open) => {
   } else {
     unlockPageScroll();
     boardToggle?.focus({ preventScroll: true });
+    firstBoardLink?.focus();
+  } else {
+    boardToggle.focus({ preventScroll: true });
   }
 };
 
